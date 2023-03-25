@@ -26,5 +26,4 @@ class ScrollingActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         recyclerView.adapter = verticalRecycleView
     }
-
 }
