@@ -1,6 +1,8 @@
 package com.example.myapplication2202
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,5 +27,11 @@ class ScrollingActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.vertical_recyclerview)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         recyclerView.adapter = verticalRecycleView
+
+        val buttonMap = findViewById<Button>(R.id.map)
+        buttonMap.setOnClickListener {
+            val intent = Intent(this, MapsView::class.java )
+            startActivity(intent)
+        }
     }
 }
