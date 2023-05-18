@@ -1,5 +1,6 @@
-package com.example.myapplication2202
+package com.example.myapplication2202.network
 
+import com.example.myapplication2202.network.data.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -13,7 +14,4 @@ interface WeatherService {
     ): Response<WeatherResponse>
 }
 
-data class WeatherResponse(val list: List<WeatherData>)
-data class WeatherData(val dt_txt: String, val main: MainData, val weather: List<WeatherDetail>)
-data class MainData(val temp: Double)
-data class WeatherDetail(val icon: String)
+

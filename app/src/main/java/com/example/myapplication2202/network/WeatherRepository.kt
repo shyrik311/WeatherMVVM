@@ -1,12 +1,14 @@
-package com.example.myapplication2202
+package com.example.myapplication2202.network
 
+import com.example.myapplication2202.network.data.WeatherResponse
 import retrofit2.HttpException
 import retrofit2.Response
 
 class WeatherRepository {
-    private val weatherService = WeatherServiceFactory.create()
 
     suspend fun getWeatherData(): WeatherResponse {
+        val weatherService: WeatherService = WeatherServiceFactory.create()
+
         val response: Response<WeatherResponse> = weatherService.getWeatherForecast(
             "Kyiv",
             "3b47ed3b92acbc7d2e25a4cc3d1afe02",

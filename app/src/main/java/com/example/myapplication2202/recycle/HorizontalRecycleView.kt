@@ -1,4 +1,4 @@
-package com.example.myapplication2202
+package com.example.myapplication2202.recycle
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication2202.R
+import com.example.myapplication2202.WeatherUtils
+import com.example.myapplication2202.network.data.WeatherData
 
 
-class HorizontalRecycleView(private var data: List<Weather>) :
+class HorizontalRecycleView(private var data: List<WeatherData>) :
     RecyclerView.Adapter<HorizontalRecycleView.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -17,19 +20,21 @@ class HorizontalRecycleView(private var data: List<Weather>) :
     }
 
     override fun getItemCount(): Int {
-        return  data.size
+        return data.size
     }
 
-    fun updateData(newWeatherList: List<Weather>) {
-        data = newWeatherList
-        notifyItemChanged(3)
+    fun updateData(newWeatherList: List<WeatherData>) {
+        data = newWeatherList.subList(0, 24)
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
         val weather = data[position]
-        holder.time.text = weather.date
-        holder.temperature.text = weather.temperature
-        holder.weather.setImageResource(weather.icon)
+        holder.time.text = WeatherUtils.getTime(weather.dt)
+        holder.temperature.text = weather.main.temp.toInt().toString() + "°C"
+        val iconResource = WeatherUtils.getIconId(weather.weather[0].icon)
+        holder.weather.setImageResource(iconResource)
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -38,4 +43,3 @@ class HorizontalRecycleView(private var data: List<Weather>) :
         val weather: ImageView = itemView.findViewById(R.id.weather)
     }
 }
-
