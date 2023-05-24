@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication2202.R
-import com.example.myapplication2202.WeatherUtils
+import com.example.myapplication2202.utils.WeatherUtils
 import com.example.myapplication2202.network.data.WeatherData
 
 

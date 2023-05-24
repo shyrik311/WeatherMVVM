@@ -1,5 +1,6 @@
-package com.example.myapplication2202
+package com.example.myapplication2202.utils
 
+import com.example.myapplication2202.R
 import java.text.SimpleDateFormat
 import java.util.*
 

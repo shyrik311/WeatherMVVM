@@ -1,22 +1,20 @@
-package com.example.myapplication2202
+package com.example.myapplication2202.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication2202.R
 import com.example.myapplication2202.network.WeatherRepository
+import com.example.myapplication2202.network.data.WeatherData
 import com.example.myapplication2202.recycle.HorizontalRecycleView
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
-    private var weatherRepository: WeatherRepository = WeatherRepository()
+class MainActivity : AppCompatActivity(), MainContract.View {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HorizontalRecycleView
+    private lateinit var presenter: MainContract.Presenter
 
-    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrolling)
@@ -27,13 +25,22 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
 
-        GlobalScope.launch(Dispatchers.Main) {
-            try {
-                val weatherResponse = weatherRepository.getWeatherData()
-                adapter.updateData(weatherResponse.list)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        presenter = MainPresenter(this, WeatherRepository())
+        presenter.getWeatherData()
+
+
+    }
+
+    override fun showWeatherData(weatherData: List<WeatherData>) {
+        adapter.updateData(weatherData)
+    }
+
+    override fun showError(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDestroy() {
+        presenter.onDestroy()
+        super.onDestroy()
     }
 }
