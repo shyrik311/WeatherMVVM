@@ -1,3 +1,3 @@
-package com.example.myapplication2202.network.data
+package com.example.weathermvp.network.data
 
 data class WeatherResponse(val list: List<WeatherData>)

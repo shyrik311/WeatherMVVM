@@ -1,4 +1,4 @@
-package com.example.myapplication2202.ui
+package com.example.weathermvp.ui
 
 interface Presenter {
     fun getWeatherData()

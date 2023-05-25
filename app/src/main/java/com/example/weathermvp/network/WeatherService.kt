@@ -1,6 +1,6 @@
-package com.example.myapplication2202.network
+package com.example.weathermvp.network
 
-import com.example.myapplication2202.network.data.WeatherResponse
+import com.example.weathermvp.network.data.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -1,6 +1,6 @@
-package com.example.myapplication2202.ui
+package com.example.weathermvp.ui
 
-import com.example.myapplication2202.network.WeatherRepository
+import com.example.weathermvp.network.WeatherRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

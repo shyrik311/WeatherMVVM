@@ -1,4 +1,4 @@
-package com.example.myapplication2202.recycle
+package com.example.weathermvp.recycle
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication2202.R
-import com.example.myapplication2202.utils.WeatherUtils
-import com.example.myapplication2202.network.data.WeatherData
+import com.example.weathermvp.R
+import com.example.weathermvp.utils.WeatherUtils
+import com.example.weathermvp.network.data.WeatherData
 
 
 class HorizontalRecycleView(private var data: List<WeatherData>) :

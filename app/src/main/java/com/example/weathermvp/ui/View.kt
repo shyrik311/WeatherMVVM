@@ -1,6 +1,6 @@
-package com.example.myapplication2202.ui
+package com.example.weathermvp.ui
 
-import com.example.myapplication2202.network.data.WeatherData
+import com.example.weathermvp.network.data.WeatherData
 
 
 interface View {

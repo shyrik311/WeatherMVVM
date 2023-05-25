@@ -1,6 +1,6 @@
-package com.example.myapplication2202.utils
+package com.example.weathermvp.utils
 
-import com.example.myapplication2202.R
+import com.example.weathermvp.R
 import java.text.SimpleDateFormat
 import java.util.*
 

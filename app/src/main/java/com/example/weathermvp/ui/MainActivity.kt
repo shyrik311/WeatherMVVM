@@ -1,14 +1,14 @@
-package com.example.myapplication2202.ui
+package com.example.weathermvp.ui
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication2202.R
-import com.example.myapplication2202.network.WeatherRepository
-import com.example.myapplication2202.network.data.WeatherData
-import com.example.myapplication2202.recycle.HorizontalRecycleView
+import com.example.weathermvp.R
+import com.example.weathermvp.network.WeatherRepository
+import com.example.weathermvp.network.data.WeatherData
+import com.example.weathermvp.recycle.HorizontalRecycleView
 
 class MainActivity : AppCompatActivity(), View {
     private lateinit var recyclerView: RecyclerView
