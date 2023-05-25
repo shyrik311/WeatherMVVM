@@ -10,10 +10,10 @@ import com.example.myapplication2202.network.WeatherRepository
 import com.example.myapplication2202.network.data.WeatherData
 import com.example.myapplication2202.recycle.HorizontalRecycleView
 
-class MainActivity : AppCompatActivity(), MainContract.View {
+class MainActivity : AppCompatActivity(), View {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HorizontalRecycleView
-    private lateinit var presenter: MainContract.Presenter
+    private lateinit var presenter: Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +37,5 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     override fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-    }
-
-    override fun onDestroy() {
-        presenter.onDestroy()
-        super.onDestroy()
     }
 }

@@ -1,14 +1,13 @@
 package com.example.myapplication2202.network
 
-import com.example.myapplication2202.ui.MainContract
 import com.example.myapplication2202.network.data.WeatherResponse
 import retrofit2.HttpException
 import retrofit2.Response
 
-class WeatherRepository: MainContract.Model {
+class WeatherRepository{
     private val weatherService: WeatherService = WeatherServiceFactory.create()
 
-    override suspend fun getWeatherData(): WeatherResponse {
+     suspend fun getWeatherData(): WeatherResponse {
 
         val response: Response<WeatherResponse> = weatherService.getWeatherForecast(
             "Kyiv",
