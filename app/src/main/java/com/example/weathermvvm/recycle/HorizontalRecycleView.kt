@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.weathermvp.R
+import com.example.myapplication2202.R
 import com.example.weathermvp.utils.WeatherUtils
 import com.example.weathermvp.network.data.WeatherData
 
