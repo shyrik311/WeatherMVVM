@@ -1,4 +1,4 @@
-package com.example.weathermvp.ui
+package com.example.weathermvvm.ui
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication2202.R
-import com.example.weathermvp.network.WeatherRepository
-import com.example.weathermvp.network.data.WeatherData
-import com.example.weathermvp.recycle.HorizontalRecycleView
+import com.example.weathermvvm.network.WeatherRepository
+import com.example.weathermvvm.network.data.WeatherData
+import com.example.weathermvvm.recycle.HorizontalRecycleView
 
 class MainActivity : AppCompatActivity(), View {
     private lateinit var recyclerView: RecyclerView
@@ -27,7 +27,10 @@ class MainActivity : AppCompatActivity(), View {
         recyclerView.adapter = adapter
 
         val weatherRepository = WeatherRepository()
-        viewModel = ViewModelProvider(this, MainViewModelFactory(weatherRepository))[MainViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(weatherRepository)
+        )[MainViewModel::class.java]
         viewModel.weatherData.observe(this) { weatherData ->
             adapter.updateData(weatherData)
         }

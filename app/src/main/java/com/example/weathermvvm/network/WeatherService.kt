@@ -1,6 +1,6 @@
-package com.example.weathermvp.network
+package com.example.weathermvvm.network
 
-import com.example.weathermvp.network.data.WeatherResponse
+import com.example.weathermvvm.network.data.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

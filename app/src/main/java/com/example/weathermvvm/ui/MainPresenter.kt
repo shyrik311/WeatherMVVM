@@ -1,6 +1,6 @@
-package com.example.weathermvp.ui
+package com.example.weathermvvm.ui
 
-import com.example.weathermvp.network.WeatherRepository
+import com.example.weathermvvm.network.WeatherRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ class MainPresenter(
             try {
                 val weatherResponse = model.getWeatherData()
                 view.showWeatherData(weatherResponse.list)
-            }catch (e: Exception) {
+            } catch (e: Exception) {
                 e.printStackTrace()
                 view.showError("Failed to fetch weather data")
             }

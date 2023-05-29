@@ -1,4 +1,4 @@
-package com.example.weathermvp.utils
+package com.example.weathermvvm.utils
 
 import com.example.myapplication2202.R
 import java.text.SimpleDateFormat

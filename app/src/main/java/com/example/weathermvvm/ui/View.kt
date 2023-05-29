@@ -1,6 +1,6 @@
-package com.example.weathermvp.ui
+package com.example.weathermvvm.ui
 
-import com.example.weathermvp.network.data.WeatherData
+import com.example.weathermvvm.network.data.WeatherData
 
 interface View {
     fun showWeatherData(weatherData: List<WeatherData>)
