@@ -1,17 +1,15 @@
 package com.example.weathermvvm.ui
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication2202.R
 import com.example.weathermvvm.network.WeatherRepository
-import com.example.weathermvvm.network.data.WeatherData
 import com.example.weathermvvm.recycle.HorizontalRecycleView
 
-class MainActivity : AppCompatActivity(), View {
+class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HorizontalRecycleView
     private lateinit var viewModel: MainViewModel
@@ -34,18 +32,7 @@ class MainActivity : AppCompatActivity(), View {
         viewModel.weatherData.observe(this) { weatherData ->
             adapter.updateData(weatherData)
         }
-        viewModel.error.observe(this) { errorMessage ->
-            showError(errorMessage)
-        }
+
         viewModel.getWeatherData()
-    }
-
-
-    override fun showWeatherData(weatherData: List<WeatherData>) {
-        adapter.updateData(weatherData)
-    }
-
-    override fun showError(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
