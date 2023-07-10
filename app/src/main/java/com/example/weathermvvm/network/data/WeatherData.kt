@@ -1,4 +1,14 @@
 package com.example.weathermvvm.network.data
 
-data class WeatherData(val dt: Long, val main: MainData, val weather: List<WeatherDetail>)
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "weather_data")
+data class WeatherData(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val dt: Long,
+    @Embedded val main: MainData,
+    @Embedded val weather: List<WeatherDetail>
+)
 

@@ -1,3 +1,9 @@
 package com.example.weathermvvm.network.data
 
-data class MainData(val temp: Double)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "main_data")
+data class MainData(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val temp: Double)
